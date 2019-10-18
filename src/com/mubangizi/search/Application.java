@@ -16,11 +16,6 @@ public class Application {
     public static void main(String[] args) {
         Scanner jin = new Scanner(System.in);
         LinearLinkedList<Object> List = new LinearLinkedListImpl();
-//        String List[] = {"Ian", "Mubangizi", "20", "Student"};
-//        System.out.println(new LinearSearch().search(List, 20));
-//        System.out.println(new LinearSearch().search(List, "45"));
-//        System.out.println(new LinearSearch().search(List, "Ian"));
-//        System.out.println(new LinearSearch().search(List, "Mubangizi"));
 
         System.out.println("[\tUse [Q] -> Quit / [A] -> Add & [S] -> Search\t]");
         while (true) {
