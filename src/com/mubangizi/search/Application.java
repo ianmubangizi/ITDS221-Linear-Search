@@ -41,7 +41,7 @@ public class Application {
                         list[i] = List.elements()[i].getData();
                     }
                     if (new LinearSearch().search(list, jin.next())) {
-                        System.out.println("[\tFOUND A MATCH IN LIST\t]");
+                        System.out.println("[\tFOUND A MATCH IN LIST\t\t]");
                     } else {
                         System.out.println("[\tNO MATCH IN LIST\t\t]");
                     }
@@ -54,14 +54,22 @@ public class Application {
 
     static class LinearSearch {
 
-        private int index = 0;
-
         public boolean search(Object[] array, Object item) {
-            if (array != null && index < array.length) {
+            if (array != null) {
+                if (array[0].equals(item)) {
+                    return true;
+                }
+                return search(array, item, 0);
+            }
+            return false;
+        }
+
+        private boolean search(Object[] array, Object item, int index) {
+            if (index < array.length) {
                 if (array[index++].equals(item)) {
                     return true;
                 }
-                return search(array, item);
+                return search(array, item, index);
             }
             return false;
         }
