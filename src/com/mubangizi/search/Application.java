@@ -36,10 +36,7 @@ public class Application {
             if (input.matches("S") | input.matches("s")) {
                 if (List.elements() != null) {
                     System.out.print("[INPUT DATA TO SEARCH]: ");
-                    Object list[] = new Object[List.elements().length];
-                    for (int i = 0; i < List.elements().length; i++) {
-                        list[i] = List.elements()[i].getData();
-                    }
+                    Object list[] = List.elements();
                     if (new LinearSearch().search(list, jin.next())) {
                         System.out.println("[\tFOUND A MATCH IN LIST\t\t]");
                     } else {
