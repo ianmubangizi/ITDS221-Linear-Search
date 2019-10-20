@@ -26,21 +26,25 @@ public class Application {
         while (true) {
             System.out.print("[INPUT [Q] - [A] - [S]]: ");
             String input = jin.next();
-            if (input.matches("Q") | input.matches("q")) {
+            if (input.equalsIgnoreCase("Q")) {
                 break;
             }
-            if (input.matches("A") | input.matches("a")) {
+            if (input.equalsIgnoreCase("A")) {
                 System.out.print("[INPUT DATA TO ADD]: ");
                 List.add(jin.next());
             }
-            if (input.matches("S") | input.matches("s")) {
+            if (input.equalsIgnoreCase("S")) {
                 if (List.elements() != null) {
                     System.out.print("[INPUT DATA TO SEARCH]: ");
                     Object list[] = List.elements();
                     if (new LinearSearch().search(list, jin.next())) {
                         System.out.println("[\tFOUND A MATCH IN LIST\t\t]");
                     } else {
-                        System.out.println("[\tNO MATCH IN LIST\t\t]");
+                        System.out.println("[\tNO MATCH IN "
+                                + (list.length == 0
+                                        ? "LIST, IT'S EMPTY"
+                                        : "LIST")
+                                + "\t]");
                     }
                 } else {
                     System.out.println("[\tADD ITEMS IN ORDER TO SEARCH\t]");
@@ -52,7 +56,7 @@ public class Application {
     static class LinearSearch {
 
         public boolean search(Object[] array, Object item) {
-            if (array != null) {
+            if (array.length != 0) {
                 if (array[0].equals(item)) {
                     return true;
                 }
